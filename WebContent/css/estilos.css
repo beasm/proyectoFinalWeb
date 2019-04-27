@@ -123,17 +123,7 @@ footer {
 	bottom: 0;
 	width: 100%;
 	height: 75px;
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff3019+0,cf0404+100;Red+3D */
-	background: rgb(255, 48, 25); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(255, 48, 25, 1) 0%,
-		rgba(207, 4, 4, 1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, rgba(255, 48, 25, 1) 0%,
-		rgba(207, 4, 4, 1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, rgba(255, 48, 25, 1) 0%,
-		rgba(207, 4, 4, 1) 100%);
-	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019',
-		endColorstr='#cf0404', GradientType=0); /* IE6-9 */
+	background: rgb(255, 48, 25);
 	color: white;
 	text-align: center;
 }
@@ -190,19 +180,28 @@ iframe {
 	section {
 		width: auto;
 		float: none;
+		height: auto;
 	}
 	aside {
 		width: auto;
 		float: none;
+		height: auto;
 	}
 }
 
 @media screen and (max-width: 480px) {
+	nav ul li {
+		width: 33.333%;
+	}
 	#contenedor {
 		width: 100%;
+		height: auto;
 		border: none;
 		margin: 0px;
 		padding: 0px;
+	}
+	#contenerdorFotos {
+		display: none;
 	}
 	header {
 		margin: 0;
@@ -218,9 +217,22 @@ iframe {
 	aside {
 		display: none;
 	}
+	input, label, select,textarea {
+		width: 95%;
+		text-align: center;
+		align-items: center;
+	}
 	section {
 		width: 100%;
 		margin: 0;
 		padding: 5px;
+		height: auto;
 	}
+	section footer {
+		display: none;
+	}
+	* {
+		margin:0px;
+	}
+
 }
