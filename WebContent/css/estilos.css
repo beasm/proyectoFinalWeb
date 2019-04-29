@@ -70,7 +70,8 @@ nav ul li a:hover {
 section {
 	width: 550px;
 	float: left;
-	height: 600px;
+	min-height: 600px;
+	height: auto;
 	margin-left: 10%;
 	margin-bottom: 15px;
 }
@@ -223,7 +224,7 @@ iframe {
 		align-items: center;
 	}
 	section {
-		width: 100%;
+		width: 95%;
 		margin: 0;
 		padding: 5px;
 		height: auto;

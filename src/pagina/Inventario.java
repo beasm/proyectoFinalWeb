@@ -8,18 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.neodatis.odb.ODB;
-import org.neodatis.odb.ODBFactory;
-import org.neodatis.odb.Objects;
-import org.neodatis.odb.impl.core.query.criteria.CriteriaQuery;
-
-import mercado.Categoria;
-import mercado.Producto;
-
 @WebServlet("/Inventario")
 public class Inventario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static ODB objCategorias;
 
 	public Inventario() {
 		super();
@@ -63,6 +54,5 @@ public class Inventario extends HttpServlet {
 	public void destroy() {
 		// Cierra la conexión con la base de datos ALMACEN.DB.
 		super.destroy();
-		objCategorias.close();
 	}
 }
