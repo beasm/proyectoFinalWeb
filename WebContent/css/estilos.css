@@ -7,12 +7,17 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-weight: 400;
+	text-align: center;
+	font-weight: bold;
 	margin: 10px 0
 }
 
+h1 {
+	padding: 26px;
+}
+
 #contenedor {
-	width: 90%;
+	width: 100%;
 	background-color: #FFF;
 	padding: 5px;
 	margin-left: auto;
@@ -21,10 +26,11 @@ h1, h2, h3, h4, h5, h6 {
 
 header#cabecera {
 	width: 100%;
-	background: rgb(255, 48, 25);
-	color: white;
+	background: white;
+	color: #002b3c;
 	overflow: hidden;
 	text-align: center;
+	box-shadow: rgba(0, 0, 0, 0.36) 0 3px 8px;
 }
 
 header .logo {
@@ -53,18 +59,20 @@ nav ul li {
 }
 
 nav ul li a {
+	justify-content: center;
+	cursor: pointer;
 	display: block;
-	padding-top: 8px;
-	padding-bottom: 8px;
+	padding-top: 16px;
+	padding-bottom: 16px;
 	font-weight: bold;
 	color: white;
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f85032+0,f16f5c+50,f6290c+51,f02f17+71,e73827+100;Red+Gloss+%231 */
-	background: rgb(248, 80, 50); /* Old browsers */
+	background: #00b5cc;
 	text-decoration: none;
+	border-bottom: 1px;
 }
 
 nav ul li a:hover {
-	background: red;
+	background: #24d26a;
 }
 
 section {
@@ -94,6 +102,12 @@ section img {
 	height: 275px;
 }
 
+#calendar {
+	width: 124px;
+	height: 30px;
+	align-items: center;
+}
+
 section footer {
 	position: relative;
 	clear: both;
@@ -105,8 +119,8 @@ section footer {
 }
 
 aside {
-	margin-right: 15px;
-	width: 300px;
+	margin-right: 45px;
+	width: 400px;
 	float: right;
 	height: 500px;
 	margin-bottom: 15px;
@@ -124,7 +138,7 @@ footer {
 	bottom: 0;
 	width: 100%;
 	height: 75px;
-	background: rgb(255, 48, 25);
+	background: #00b5cc;
 	color: white;
 	text-align: center;
 }
@@ -151,10 +165,11 @@ form button {
 	padding: 5px;
 	width: 100%;
 	border: 0;
+	max-width: 560px;
 }
 
 form button:hover {
-	background: red;
+	background: #24d26a;
 }
 
 label {
@@ -170,23 +185,59 @@ input, select {
 }
 
 input:focus {
-	outline: 3px solid red;
+	outline: 3px solid #24d26a;
 }
 
 iframe {
 	margin-top: 20px;
 }
 
-@media screen and (max-width: 700px) {
-	section {
-		width: auto;
-		float: none;
-		height: auto;
+.descargas {
+	align-items: center;
+}
+
+.descargas img {
+	width: 240px;
+	height: 170px;
+	margin: 16px;
+}
+
+.descargas button {
+	padding: 16px;
+	margin: 16px;
+	width: 240px;
+	font-weight: bold;
+	color: white;
+	size: 16px;
+	text-decoration: none;
+	background-color: #eba623;
+}
+
+ul#listaInicio {
+	margin-left: 40px;
+}
+
+@media screen and (max-width: 1124px) {
+	h1 {
+		width: auto !important;
 	}
-	aside {
+	section, aside {
 		width: auto;
 		float: none;
 		height: auto;
+		min-height: auto;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	nav ul li a {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: 38px;
+	}
+	aside img {
+		width: auto;
+		align-items: center;
 	}
 }
 
@@ -204,6 +255,9 @@ iframe {
 	#contenerdorFotos {
 		display: none;
 	}
+	.descargas img {
+		display: none;
+	}
 	header {
 		margin: 0;
 	}
@@ -218,7 +272,7 @@ iframe {
 	aside {
 		display: none;
 	}
-	input, label, select,textarea {
+	input, label, select, textarea {
 		width: 95%;
 		text-align: center;
 		align-items: center;
@@ -228,12 +282,12 @@ iframe {
 		margin: 0;
 		padding: 5px;
 		height: auto;
+		min-height: none;
 	}
 	section footer {
 		display: none;
 	}
-	* {
-		margin:0px;
+	.descargas button {
+		width: 95%;
 	}
-
 }

@@ -7,23 +7,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
 <link rel="stylesheet" type="text/css" href="css/slider.css">
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Poppins">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<link rel="stylesheet" type="text/css" href="css/autentication.css">
+
 <script src="script/documento.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+<script>
+	firebase.initializeApp(config);
+</script>
 </head>
 <body>
 	<div id='contenedor'>
 		<nav>
 			<ul>
-				<li><a href="index.html" target="_self"> Inicio </a></li>
-				<li><a href="eventos.html" target="_self"> Eventos </a></li>
-				<li><a href="noticias.html" target="_self"> Noticias </a></li>
+				<li><a href="index.html" target="_self"
+					style="border-bottom: 3px solid rgb(0, 165, 183)"> Inicio </a></li>
+				<li><a href="eventos.html" target="_self"
+					style="border-bottom: 3px solid rgb(0, 165, 183)"> Eventos </a></li>
+				<li><a href="noticias.html" target="_self"
+					style="border-bottom: 3px solid rgb(0, 165, 183)"> Noticias </a></li>
 				<li><a href="descargas.html" target="_self"> Descarga </a></li>
-				<li><a href="contacta.html" target="_self"> Contacta </a></li>
-				<li><a href="login.html" target="_self"> Login </a></li>
+				<li><a href="contacta.html" target="_self"
+					style="border-bottom: 3px solid rgb(0, 165, 183)"> Contacta </a></li>
+				<li><a id="myBtn"
+					style="border-bottom: 3px solid rgb(0, 165, 183)"> Iniciar
+						sesión </a></li>
 			</ul>
 		</nav>
 		<header id='cabecera'>
@@ -47,34 +56,76 @@
 		<section>
 			<header>
 				<h2>Aplicaciones para los tuyos</h2>
-				<h3>Descarga tus aplicaciones</h3>
 			</header>
 			<article class="descargas">
-				<label>Aplicacion Movil</label>
-				<button>Descarga</button>
-				<label>Juego Movil</label>
-				<button>Descarga</button>
-				<label>Juego W10</label>
-				<button>Descarga</button>
-				<label>Juego Online</label> 
-				<a href="juego.html" target="_self">
-					<button>Jugar</button>
-				</a>
+				<h3>Descarga tu aplicacion movil</h3>
+				<table style="width: 100%">
+					<tr>
+						<td>Para tener toda la información a mano e informado día
+							día. Tenemos el placer de ofrecerle nuestra aplicación móvil con
+							contenido en exclusiva e información realmente útil que no podrás
+							vivir sin ella</td>
+
+						<td rowspan="2"><img src="imagenes/appMovil.png"
+							alt="publicidad" title="Ofertas"></td>
+					</tr>
+					<tr>
+						<td><a href="download/app.apk"><button>Aplicacion
+									Movil</button></a></td>
+					</tr>
+				</table>
+
+				<h3>Juega online</h3>
+				<table style="width: 100%">
+					<tr>
+						<td>Juega o enseña a tu hijo este juego tan divertido con el
+							que pueden aprender los primeros conceptos de programación
+							divirtiéndose</td>
+						<td rowspan="2"><img src="imagenes/juegoOnline.png"
+							alt="publicidad" title="Ofertas"></td>
+					</tr>
+					<tr>
+						<td><a href="juego.html" target="_self">
+								<button>Jugar Juego Online</button>
+						</a></td>
+					</tr>
+				</table>
+
+				<h3>O puedes descargar tu juego para los distintos dispositivos</h3>
+				<a href="download/juego.apk"><button>Descarga Juego W10</button></a> <a
+					href="download/juego.apk"><button>Descarga Juego Movil</button></a>
 			</article>
 		</section>
 
 		<aside>
-			<a href=""><img src="imagenes/london.jpg" alt="publicidad"
-				title="Ofertas"></a> <a href=""><img
-				src="imagenes/ordenador.jpg" alt="publicidad" title="Ofertas"></a>
+			<a href=""><img src="imagenes/6.jpg" alt="publicidad"
+				title="Ofertas"></a> <a href=""><img src="imagenes/8.jpg"
+				alt="publicidad" title="Ofertas"></a>
 		</aside>
 		<footer>
 			<p>
-				<small>copyright © 2018. Realizado por Bea</small>
+				<small>copyright © 2019. Realizado por Bea</small>
 			</p>
 		</footer>
 	</div>
-
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2>Iniciar sesión</h2>
+			<p>¿Quieres que te mantengamos informado de lo más destacadas de
+				cada día? Registrate</p>
+			<br /> <input type="text" id="email" name="email"
+				placeholder="Email" /> <br /> <br /> <input type="password"
+				id="password" name="password" placeholder="Password" /> <br /> <br />
+			<button id="iniciar-sesion" name="signin">Iniciar sesión</button>
+			<br /> <br />
+			<button id="registrarse" name="signup">Registrarse</button>
+			<br /> <br /> <a id="restablecer" name="verify-email">Olvidé mi
+				contraseña</a>
+		</div>
+	</div>
 </body>
 
 </html>
