@@ -1,5 +1,18 @@
 @charset "UTF-8";
 
+.webgl-content {
+	top: 50%;
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	width: fit-content;
+	position: unset;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: none;
+	transform: none;
+}
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -72,7 +85,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-	background: #24d26a;
+	background: rgb(179, 246, 255);
+	color: black !important;
 }
 
 section {
@@ -169,7 +183,8 @@ form button {
 }
 
 form button:hover {
-	background: #24d26a;
+	background: rgb(179, 246, 255);
+	color: black;
 }
 
 label {
@@ -185,7 +200,8 @@ input, select {
 }
 
 input:focus {
-	outline: 3px solid #24d26a;
+	outline: 3px solid rgb(227, 143, 126);
+	color: black;
 }
 
 iframe {
@@ -215,6 +231,10 @@ iframe {
 
 ul#listaInicio {
 	margin-left: 40px;
+}
+
+input[type="radio"] {
+	width: auto;
 }
 
 @media screen and (max-width: 1124px) {
