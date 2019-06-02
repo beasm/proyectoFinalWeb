@@ -100,6 +100,7 @@ function registarUsuario() {
             }
             console.log(error);
         });
+    salirLogin();
 }
 
 function restablecerPassword() {
