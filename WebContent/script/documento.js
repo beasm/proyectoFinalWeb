@@ -35,8 +35,8 @@ function cambiarFoto() {
 }
 
 var config = {
-    apiKey: "AIzaSyBLBKowrtCp8dhu9p4cWlBI86kEAsY6Roc",
-    authDomain: "webdam-c5630.firebaseapp.com",
+    apiKey: "AIzaSyDcWt-Z7v5-qQgEMn0ZZKfxOQo_XF2ATO4",
+    authDomain: "project-9ba52.firebaseapp.com",
 };
 
 /**
