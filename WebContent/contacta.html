@@ -52,16 +52,23 @@ firebase.initializeApp(config);
 				<h2>Formulario de contacto</h2>
 			</header>
 			<article>
-				<form>
+				<form name="contactar">
 					<p>
-						<label for="nombre">Nombre:</label> <input type="text"
-							name="nombre" id="nombre" placeholder="Nombre" maxlength="10" />
-						<br /> <label for="telefono">Teléfono:</label> <input type="text"
-							name="telefono" id="telefono" placeholder="Teléfono" /> <br />
-						<label for="correo">Email:</label> <input type="text"
-							name="correo" id="correo" placeholder="Correo" /> <br /> <label
-							for="telefono">Valóranos:</label> <input type="number"> <br />
-						<label for="pais">País</label> <select name="pais" id="pais">
+						<label for="nombre">Nombre:</label> 
+						<input type="text" name="nombre" id="nombre" placeholder="Nombre" maxlength="10" pattern="[A-Za-z ]+"
+						title="El nombre de usuario solo debe contener letras p.ej. Juan"
+						 required/>
+						<br /> 
+						<label for="telefono">Teléfono:</label> 
+						<input type="tel" name="telefono" id="telefono" placeholder="Teléfono" required/> 
+						<br />
+						<label for="correo">Email:</label> 
+						<input type="email" name="correo" id="correo" placeholder="Correo" required/> 
+						<br /> 
+							<label for="telefono">Valóranos:</label> 
+							<input type="number" required> 
+						<br />
+						<label for="pais">País</label> <select name="pais" id="pais" required>
 							<option value="espana">España</option>
 							<option value="estadosunidos">Portugal</option>
 							<option value="canada">Francia</option>
@@ -69,15 +76,15 @@ firebase.initializeApp(config);
 							<option value="italia">Italia</option>
 						</select> <br /> <label for="mas40">¿Eres mayor de edad?</label> 
 						<label>
-						<input
-							type="radio" name="edad" value="mas40" id="mas40">Si <input
-							type="radio" name="edad" value="mas40" id="mas40">No
+						<input required
+							type="radio" name="edad" value="mas40" id="mas40si">Si <input
+							type="radio" name="edad" value="mas40" id="mas40no">No
 						</label> <br />
 						<label for="mejora"> ¿Qué opinas? </label>
-						<textarea name="mejora" id="mejora" rows="5" cols="50"></textarea>
+						<textarea name="mejora" id="mejora" rows="5" cols="50" required></textarea>
 						<br />
 						<br />
-						<button type="submit" value="Enviar">Enviar</button>
+						<button id="sumit" type="submit" value="Enviar">Enviar</button>
 					</p>
 				</form>
 			</article>

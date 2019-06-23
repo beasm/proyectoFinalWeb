@@ -2,6 +2,14 @@ var contador = 0;
 var numeroFotos = 5;
 var select;
 
+function sumit() {
+	var form  = document.getElementsByName('contactar')[0];
+	if (form.checkValidity()) {
+		alert('Gracias por contactar con nosotros. Datos enviados!');
+	} else {
+		alert('Por favor revisa los datos del formulario.');
+	}
+}
 
 function next() {
     if (contador < numeroFotos - 1) {
@@ -163,6 +171,7 @@ window.onload = function() { // window.onload hace que se ejecute la funcion
         }
     });
     // [END authstatelistener]
+    document.getElementById('sumit').addEventListener('click', sumit, false);
     document.getElementById('iniciar-sesion').addEventListener('click', iniciarSesion, false);
     document.getElementById('registrarse').addEventListener('click', registarUsuario, false);
     document.getElementById('restablecer').addEventListener('click', restablecerPassword, false);
