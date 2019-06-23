@@ -2,21 +2,32 @@ var contador = 0;
 var numeroFotos = 5;
 var select;
 
-function sumit() {
-	if (document.getElementsByName('contactar')[0].checkValidity()) {		
-		firebase.database().ref('contactar/' + firebase.auth().currentUser.uid).set({
-			nombre: document.getElementById('nombre').value,
-			telefono: document.getElementById('telefono').value,
-			correo: document.getElementById('correo').value,
-			valorar: document.getElementById('valorado').value,
-			pais: document.getElementById('pais').value,
-			edad: document.getElementById('mas40si').checked,
-			opinion: document.getElementById('mejora').value
-		  });
-		alert('Gracias por contactar con nosotros. Datos enviados!');
-	} else {
-		alert('Por favor revisa los datos del formulario.');
-	}
+function validar() {
+    if (firebase.auth().currentUser) {
+    	if (document.getElementsByName('contactar')[0].checkValidity()) {		
+    		firebase.database().ref('contactar/' + firebase.auth().currentUser.uid + '/' + new Date() ).set({
+    			nombre: document.getElementById('nombre').value,
+    			telefono: document.getElementById('telefono').value,
+    			correo: document.getElementById('correo').value,
+    			valorar: document.getElementById('valorado').value,
+    			pais: document.getElementById('pais').value,
+    			edad: document.getElementById('mas40si').checked,
+    			opinion: document.getElementById('mejora').value
+    		  }, function(error) {
+    			    if (error) {
+    			    	alert('Error: ' + error);
+    			      } else {
+    			    		alert('Gracias por contactar con nosotros. Datos enviados!');
+    			    		document.getElementsByName('contactar')[0].submit();    
+    			      }
+    			    });		
+    	} else {
+    		alert('Por favor revisa los datos del formulario.');
+    		document.getElementsByName('contactar')[0].reportValidity();
+    	}
+    } else {
+        document.getElementById("myModal").style.display = "block";
+    }
 }
 
 function next() {
@@ -180,7 +191,7 @@ window.onload = function() { // window.onload hace que se ejecute la funcion
         }
     });
     // [END authstatelistener]
-    document.getElementById('sumit').addEventListener('click', sumit, false);
+//    document.getElementById('sumit').addEventListener('click', sumit, false);
     document.getElementById('iniciar-sesion').addEventListener('click', iniciarSesion, false);
     document.getElementById('registrarse').addEventListener('click', registarUsuario, false);
     document.getElementById('restablecer').addEventListener('click', restablecerPassword, false);
