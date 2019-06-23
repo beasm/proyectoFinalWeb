@@ -13,6 +13,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
 <script>
 firebase.initializeApp(config);
 </script>
@@ -65,8 +66,8 @@ firebase.initializeApp(config);
 						<label for="correo">Email:</label> 
 						<input type="email" name="correo" id="correo" placeholder="Correo" required/> 
 						<br /> 
-							<label for="telefono">Valóranos:</label> 
-							<input type="number" required> 
+							<label for="valorar">Valóranos:</label> 
+							<input type="number" id="valorado" required> 
 						<br />
 						<label for="pais">País</label> <select name="pais" id="pais" required>
 							<option value="espana">España</option>

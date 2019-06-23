@@ -3,8 +3,16 @@ var numeroFotos = 5;
 var select;
 
 function sumit() {
-	var form  = document.getElementsByName('contactar')[0];
-	if (form.checkValidity()) {
+	if (document.getElementsByName('contactar')[0].checkValidity()) {		
+		firebase.database().ref('contactar/' + firebase.auth().currentUser.uid).set({
+			nombre: document.getElementById('nombre').value,
+			telefono: document.getElementById('telefono').value,
+			correo: document.getElementById('correo').value,
+			valorar: document.getElementById('valorado').value,
+			pais: document.getElementById('pais').value,
+			edad: document.getElementById('mas40si').checked,
+			opinion: document.getElementById('mejora').value
+		  });
 		alert('Gracias por contactar con nosotros. Datos enviados!');
 	} else {
 		alert('Por favor revisa los datos del formulario.');
@@ -45,6 +53,7 @@ function cambiarFoto() {
 var config = {
     apiKey: "AIzaSyDcWt-Z7v5-qQgEMn0ZZKfxOQo_XF2ATO4",
     authDomain: "project-9ba52.firebaseapp.com",
+    databaseURL: "https://project-9ba52.firebaseio.com/",
 };
 
 /**
