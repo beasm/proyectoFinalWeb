@@ -10,6 +10,8 @@
 <link rel="stylesheet" type="text/css" href="css/autentication.css">
 
 <script src="script/documento.js"></script>
+
+<!-- Inicialización firebase -->
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
@@ -19,22 +21,19 @@
 </head>
 <body>
 	<div id='contenedor'>
+		<!-- Navegación -->
 		<nav>
 			<ul>
-				<li><a href="index.html" target="_self"
-					style="border-bottom: 3px solid rgb(0, 165, 183)"> Inicio </a></li>
-				<li><a href="eventos.html" target="_self"
-					style="border-bottom: 3px solid rgb(0, 165, 183)"> Eventos </a></li>
-				<li><a href="noticias.html" target="_self"
-					style="border-bottom: 3px solid rgb(0, 165, 183)"> Noticias </a></li>
-				<li><a href="descargas.html" target="_self"> Descarga </a></li>
-				<li><a href="contacta.html" target="_self"
-					style="border-bottom: 3px solid rgb(0, 165, 183)"> Contacta </a></li>
-				<li><a id="myBtn"
-					style="border-bottom: 3px solid rgb(0, 165, 183)"> Iniciar
-						sesión </a></li>
+				<li><a href="index.html" target="_self" style="border-bottom: 3px solid rgb(0, 165, 183)"> Inicio </a></li>
+				<li><a href="eventos.html" target="_self" style="border-bottom: 3px solid rgb(0, 165, 183)"> Eventos </a></li>
+				<li><a href="noticias.html" target="_self" style="border-bottom: 3px solid rgb(0, 165, 183)"> Noticias </a></li>
+				<li><a href="descargas.html" target="_self"	style="border-bottom: 3px solid rgb(179, 246, 255)"> Descarga </a></li>
+				<li><a href="contacta.html" target="_self" style="border-bottom: 3px solid rgb(0, 165, 183)"> Contacta </a></li>
+				<li><a id="myBtn" style="border-bottom: 3px solid rgb(0, 165, 183)"> Iniciar sesión </a></li>
 			</ul>
 		</nav>
+		
+		<!-- Slider -->
 		<header id='cabecera'>
 			<div id='contenerdorFotos'>
 				<img name="foto" src="imagenes/0.jpg" alt="Foto">
@@ -58,6 +57,7 @@
 				<h2>Aplicaciones para los tuyos</h2>
 			</header>
 			<article class="descargas">
+						
 				<h3>Descarga tu aplicacion movil</h3>
 				<table style="width: 100%">
 					<tr>
@@ -67,9 +67,10 @@
 							vivir sin ella</td>
 
 						<td rowspan="2"><img src="imagenes/appMovil.png"
-							alt="publicidad" title="Ofertas"></td>
+							alt="Aplicación Movil" title="Ofertas"></td>
 					</tr>
 					<tr>
+						<!-- descarga del apk para el movil -->
 						<td><a href="download/app.apk"><button>Aplicacion
 									Movil</button></a></td>
 					</tr>
@@ -85,6 +86,7 @@
 							alt="publicidad" title="Ofertas"></td>
 					</tr>
 					<tr>
+						<!-- link a la pagiga del juego online -->
 						<td><a href="juego.html" target="_self">
 								<button>Jugar Juego Online</button>
 						</a></td>
@@ -92,7 +94,9 @@
 				</table>
 
 				<h3>O puedes descargar tu juego para los distintos dispositivos</h3>
-				<a href="download/juegoPC.rar"><button>Descarga Juego W10</button></a> <a
+				
+				<!-- descarga del juega para windowns y para el movil -->
+				<a href="download/juegoPC.zip"><button>Descarga Juego W10</button></a> <a
 					href="download/juego.apk"><button>Descarga Juego Movil</button></a>
 			</article>
 		</section>
@@ -108,22 +112,24 @@
 			</p>
 		</footer>
 	</div>
-	<!-- The Modal -->
+	
+	<!-- The Modal para iniciar la sesión -->
 	<div id="myModal" class="modal">
 		<!-- Modal content -->
 		<div class="modal-content">
 			<span class="close">&times;</span>
 			<h2>Iniciar sesión</h2>
-			<p>¿Quieres que te mantengamos informado de lo más destacadas de
-				cada día? Registrate</p>
-			<br /> <input type="text" id="email" name="email"
-				placeholder="Email" /> <br /> <br /> <input type="password"
-				id="password" name="password" placeholder="Password" /> <br /> <br />
+			<p>¿Quieres que te mantengamos informado de lo más destacadas de cada día? Registrate</p>
+			<br />
+			<input type="text" id="email" name="email" placeholder="Correo electrónico" />
+			<br /> <br />
+			<input type="password" id="password" name="password" placeholder="Contraseña" /> 
+			<br /> <br />
 			<button id="iniciar-sesion" name="signin">Iniciar sesión</button>
 			<br /> <br />
 			<button id="registrarse" name="signup">Registrarse</button>
-			<br /> <br /> <a id="restablecer" name="verify-email">Olvidé mi
-				contraseña</a>
+			<br /> <br />
+			<a id="restablecer" name="verify-email">Olvidé mi contraseña</a>
 		</div>
 	</div>
 </body>

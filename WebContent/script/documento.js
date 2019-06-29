@@ -2,9 +2,14 @@ var contador = 0;
 var numeroFotos = 5;
 var select;
 
+/**
+ *  Validación y envía el formulario de la pagina contactar
+ */
 function validar() {
-    if (firebase.auth().currentUser) {
-    	if (document.getElementsByName('contactar')[0].checkValidity()) {		
+    if (firebase.auth().currentUser) { // si el usuario esta logeado
+    	if (document.getElementsByName('contactar')[0].checkValidity()) { // Si el formulario es valido
+    		
+    		// Se guardan los datos en la base de datos
     		firebase.database().ref('contactar/' + firebase.auth().currentUser.uid + '/' + new Date() ).set({
     			nombre: document.getElementById('nombre').value,
     			telefono: document.getElementById('telefono').value,
@@ -14,22 +19,26 @@ function validar() {
     			edad: document.getElementById('mas40si').checked,
     			opinion: document.getElementById('mejora').value
     		  }, function(error) {
-    			    if (error) {
+    			    if (error) { // en caso de error
     			    	alert('Error: ' + error);
-    			      } else {
+    			      } else { // en de guarda correctamente la info
     			    		alert('Gracias por contactar con nosotros. Datos enviados!');
     			    		document.getElementsByName('contactar')[0].submit();    
     			      }
     			    });		
-    	} else {
+    	} else { // si los datos del formalario no pasa la validacion
     		alert('Por favor revisa los datos del formulario.');
     		document.getElementsByName('contactar')[0].reportValidity();
     	}
-    } else {
+    } else { // si no esta logeado el usuario se muestra el login
         document.getElementById("myModal").style.display = "block";
     }
 }
 
+
+/**
+ * funcion que muestra la siguiente imagen en el slider
+ */
 function next() {
     if (contador < numeroFotos - 1) {
         contador++;
@@ -40,6 +49,9 @@ function next() {
     document.formulario.rb[contador].checked = true;
 }
 
+/**
+ * funcion que muestra la imagen anterior en el slider
+ */
 function previous() {
     if (contador > 0) {
         contador--;
@@ -50,6 +62,9 @@ function previous() {
     document.formulario.rb[contador].checked = true;
 }
 
+/**
+ *  Cambia la foto del slider seleccionada
+ */
 function cambiarFoto() {
     var temContador;
     for (var i = 0; i < select.length; i++) {
@@ -61,6 +76,9 @@ function cambiarFoto() {
     contador = temContador;
 }
 
+/**
+ * Configuracion de firebase
+ */
 var config = {
     apiKey: "AIzaSyDcWt-Z7v5-qQgEMn0ZZKfxOQo_XF2ATO4",
     authDomain: "project-9ba52.firebaseapp.com",
@@ -68,45 +86,14 @@ var config = {
 };
 
 /**
- * Handles the sign in button press.
+ * funcion para el botón de inicio de sesión
  */
 function iniciarSesion() {
-    if (firebase.auth().currentUser) {
-        firebase.auth().signOut();
-        alert("Desconectado.");
-    } else {
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        if (email.length < 4) {
-            alert('Por favor introduzca una dirección de correo eléctronico.');
-            return;
-        }
-        if (password.length < 4) {
-            alert('Por favor introduzca una contraseña.');
-            return;
-        }
-        firebase.auth().signInWithEmailAndPassword(email, password)
-            .catch(function(error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                if (errorCode === 'auth/wrong-password') {
-                    alert('Contraseña incorrecta.');
-                } else {
-                    alert(errorMessage);
-                }
-                console.log(error);
-            });
-        salirLogin();
-    }
-}
-
-/**
- * Handles the sign up button press.
- */
-function registarUsuario() {
+	// se usa el email y la password para el inicio de sesión
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    
+    // validaciones
     if (email.length < 4) {
         alert('Por favor introduzca una dirección de correo eléctronico.');
         return;
@@ -115,10 +102,45 @@ function registarUsuario() {
         alert('Por favor introduzca una contraseña.');
         return;
     }
-    // Sign in with email and pass.
+    
+    // llamada a fire base
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .catch(function(error) {
+            // en caso de error
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            if (errorCode === 'auth/wrong-password') {
+                alert('Contraseña incorrecta.');
+            } else {
+                alert(errorMessage);
+            }
+            console.log(error);
+        });
+    salirLogin(); // cerramos el modal del login
+}
+
+/**
+ * funcion para el botón de registrase
+ */
+function registarUsuario() {
+	// se usa el email y la password para el registro
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    
+    // Validaciones
+    if (email.length < 4) {
+        alert('Por favor introduzca una dirección de correo eléctronico.');
+        return;
+    }
+    if (password.length < 4) {
+        alert('Por favor introduzca una contraseña.');
+        return;
+    }
+    
+    // llamada a firebase
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .catch(function(error) {
-            // Handle Errors here.
+            // en caso de error
             var errorCode = error.code;
             var errorMessage = error.message;
             if (errorCode == 'auth/weak-password') {
@@ -131,13 +153,18 @@ function registarUsuario() {
     salirLogin();
 }
 
+/**
+ * funcion para el botón de restrablece contrasena
+ */
 function restablecerPassword() {
+	// se usa el email
     var email = document.getElementById('email').value;
 
+    // se llama a firebase
     firebase.auth().sendPasswordResetEmail(email).then(function() {
         alert('Restablecer contraseña de correo electrónico enviado!');
     }).catch(function(error) {
-        // Handle Errors here.
+        // en caso de error
         var errorCode = error.code;
         var errorMessage = error.message;
         if (errorCode == 'auth/invalid-email') {
@@ -149,26 +176,36 @@ function restablecerPassword() {
     });
 }
 
-// When the user clicks the button, open the modal
+/**
+ * Cuando el usuario haga clic en el botón para iniciar o desconectar
+ */
 function mostrarLogin() {
-    if (firebase.auth().currentUser) {
-        firebase.auth().signOut();
+    if (firebase.auth().currentUser) { // si esta logeado
+        firebase.auth().signOut(); // desloguea al usuario
         alert("Desconectado.");
-    } else {
+    } else { // si no esta logeado muestra el modal para iniciar o registrarse
         document.getElementById("myModal").style.display = "block";
     }
 }
 
-// When the user clicks on <span> (x), close the modal
+/**
+ * Cuando el usuario haga clic en <span> (x), cierre el modal
+ */
 function salirLogin() {
     document.getElementById("myModal").style.display = "none";
 }
 
-window.onload = function() { // window.onload hace que se ejecute la funcion
+
+/**
+ * window.onload hace que se ejecute la funcion
+ */
+window.onload = function() {
     // al cargar la pagina
 
-    // setting up slider
-    setInterval("next()", 5000); // ejecucion periodica de una funcion
+    // configuracion slider
+    setInterval("next()", 5000); // ejecucion periodica de la funcion next
+    
+    // event listener para el slider
     document.formulario.botonA.addEventListener('click', previous);
     document.formulario.botonB.addEventListener('click', next);
 
@@ -179,22 +216,23 @@ window.onload = function() { // window.onload hace que se ejecute la funcion
     select[3].addEventListener('click', cambiarFoto);
     select[4].addEventListener('click', cambiarFoto);
 
-    // Listening for auth state changes.
-    // [START authstatelistener]
+    // Escuchando los cambios de estado de autenticación para cambiar el aspecto del boton
     firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById('myBtn').style.color = "white";
-        if (user) {
+        if (user) { // si el usuario esta logeado
             document.getElementById('myBtn').textContent = 'Desconectar';
-        } else {
+        } else { // si no esta logeado
             document.getElementById('myBtn').textContent = 'Iniciar sesión';
             mostrarLogin();
         }
     });
-    // [END authstatelistener]
-//    document.getElementById('sumit').addEventListener('click', sumit, false);
+    
+    // evento para el boton de login
+    document.getElementById('myBtn').addEventListener('click', mostrarLogin, false);
+
+    // eventos de los botones del modal
     document.getElementById('iniciar-sesion').addEventListener('click', iniciarSesion, false);
     document.getElementById('registrarse').addEventListener('click', registarUsuario, false);
     document.getElementById('restablecer').addEventListener('click', restablecerPassword, false);
-    document.getElementById('myBtn').addEventListener('click', mostrarLogin, false);
     document.getElementsByClassName("close")[0].addEventListener('click', salirLogin, false);
 }

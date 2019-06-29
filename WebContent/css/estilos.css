@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+/* aspecto del contenedor del juego online */
 .webgl-content {
 	top: 50%;
 	margin-top: 5%;
@@ -29,6 +31,8 @@ h1 {
 	padding: 26px;
 }
 
+
+/* aspecto general de las paginas */
 #contenedor {
 	width: 100%;
 	background-color: #FFF;
@@ -46,18 +50,12 @@ header#cabecera {
 	box-shadow: rgba(0, 0, 0, 0.36) 0 3px 8px;
 }
 
-header .logo {
-	float: left;
-	margin: 15px;
-	width: 100%;
-}
 
-header .logo img {
-	width: 100%;
-	height: 100%;
-}
-
+/* aspecto de la navegacion */
 nav {
+	position: fixed;
+	z-index: 1;
+	top: 0;
 	width: 100%;
 }
 
@@ -89,6 +87,8 @@ nav ul li a:hover {
 	color: black !important;
 }
 
+
+/* aspecto de la secion centrar */
 section {
 	width: 550px;
 	float: left;
@@ -116,12 +116,6 @@ section img {
 	height: 275px;
 }
 
-#calendar {
-	width: 124px;
-	height: 30px;
-	align-items: center;
-}
-
 section footer {
 	position: relative;
 	clear: both;
@@ -132,6 +126,7 @@ section footer {
 	left: 0px;
 }
 
+/* aspecto las imagenes del lateral */
 aside {
 	margin-right: 45px;
 	width: 400px;
@@ -146,6 +141,8 @@ aside img {
 	height: 250px;
 }
 
+
+/* aspecto del pie de pagina */
 footer {
 	clear: both;
 	left: 5px;
@@ -162,6 +159,7 @@ footer p {
 	padding: 10px;
 }
 
+/* aspecto del formulacion */
 form {
 	display: grid;
 	background: #f9f9f9;
@@ -208,6 +206,7 @@ iframe {
 	margin-top: 20px;
 }
 
+/* aspecto de la pagina de descargas */
 .descargas {
 	align-items: center;
 }
@@ -237,6 +236,8 @@ input[type="radio"] {
 	width: auto;
 }
 
+
+/* aspecto que cambiar cuando el ancho es menor a 1124px */
 @media screen and (max-width: 1124px) {
 	h1 {
 		width: auto !important;
@@ -261,6 +262,7 @@ input[type="radio"] {
 	}
 }
 
+/* aspecto que cambian cuando el ancho es menor a 480px */
 @media screen and (max-width: 480px) {
 	nav ul li {
 		width: 33.333%;

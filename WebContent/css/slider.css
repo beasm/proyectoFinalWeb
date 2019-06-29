@@ -12,6 +12,7 @@ form {
 	display: inline;
 }
 
+/* aspecto del contenedor del slider */
 #contenerdorFotos {
 	margin-left: auto;
 	margin-right: auto;
@@ -32,7 +33,7 @@ input[type="radio"] {
 
 .boton:hover {
     opacity: 0.9;
-    filter: alpha(opacity=90); /* For IE8 and earlier */
+    filter: alpha(opacity=90);
 }
 
 .boton {

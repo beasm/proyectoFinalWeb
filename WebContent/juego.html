@@ -5,8 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DAM</title>
+
+<!-- Inicialización del juego -->
 <link rel="shortcut icon" href="juego/TemplateData/favicon.ico">
-<!-- <link rel="stylesheet" href="juego/TemplateData/style.css"> -->
 <link rel="stylesheet" href="juego/TemplateData/style.css">
 <script src="juego/TemplateData/UnityProgress.js"></script>
 <script src="juego/Build/UnityLoader.js"></script>
@@ -17,10 +18,13 @@
 			});
 	gameInstance.SetFullscreen(1);
 </script>
+
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
 <link rel="stylesheet" type="text/css" href="css/slider.css">
 <link rel="stylesheet" type="text/css" href="css/autentication.css">
 <script src="script/documento.js"></script>
+
+<!-- Inicialización firebase -->
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
@@ -30,6 +34,7 @@
 </head>
 <body>
 	<div id='contenedor'>
+		<!-- Navegación -->
 		<nav>
 			<ul>
 				<li><a href="index.html" target="_self"
@@ -47,6 +52,8 @@
 						sesión </a></li>
 			</ul>
 		</nav>
+		
+		<!-- Slider -->
 		<header id='cabecera'>
 			<div id='contenerdorFotos' style="display: none;">
 				<img name="foto" src="imagenes/0.jpg" alt="Foto">
@@ -65,35 +72,39 @@
 			<h1>Programación orientada a niños</h1>
 		</header>
 
+
+		<!-- contenedor del juego -->
 		<div class="webgl-content">
 			<div id="gameContainer" style="width: 480px; height: 320px"></div>
 			<div class="footer">
 				<div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
 			</div>
 		</div>
+		
 		<footer>
 			<p>
 				<small>copyright © 2019. Realizado por Bea</small>
 			</p>
 		</footer>
 	</div>
-
-	<!-- The Modal -->
+	
+	<!-- The Modal para iniciar la sesión -->
 	<div id="myModal" class="modal">
 		<!-- Modal content -->
 		<div class="modal-content">
 			<span class="close">&times;</span>
 			<h2>Iniciar sesión</h2>
-			<p>¿Quieres que te mantengamos informado de lo más destacadas de
-				cada día? Registrate</p>
-			<br /> <input type="text" id="email" name="email"
-				placeholder="Email" /> <br /> <br /> <input type="password"
-				id="password" name="password" placeholder="Password" /> <br /> <br />
+			<p>¿Quieres que te mantengamos informado de lo más destacadas de cada día? Registrate</p>
+			<br />
+			<input type="text" id="email" name="email" placeholder="Correo electrónico" />
+			<br /> <br />
+			<input type="password" id="password" name="password" placeholder="Contraseña" /> 
+			<br /> <br />
 			<button id="iniciar-sesion" name="signin">Iniciar sesión</button>
 			<br /> <br />
 			<button id="registrarse" name="signup">Registrarse</button>
-			<br /> <br /> <a id="restablecer" name="verify-email">Olvidé mi
-				contraseña</a>
+			<br /> <br />
+			<a id="restablecer" name="verify-email">Olvidé mi contraseña</a>
 		</div>
 	</div>
 </body>
