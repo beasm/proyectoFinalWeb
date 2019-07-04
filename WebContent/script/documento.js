@@ -3,7 +3,7 @@ var numeroFotos = 5;
 var select;
 
 /**
- *  Validación y envía el formulario de la pagina contactar
+ *  Validación y envía el formulario de la página contactar
  */
 function validar() {
     if (firebase.auth().currentUser) { // si el usuario esta logeado
@@ -26,7 +26,7 @@ function validar() {
     			    		document.getElementsByName('contactar')[0].submit();    
     			      }
     			    });		
-    	} else { // si los datos del formalario no pasa la validacion
+    	} else { // si los datos del formulario no pasa la validación
     		alert('Por favor revisa los datos del formulario.');
     		document.getElementsByName('contactar')[0].reportValidity();
     	}
@@ -50,7 +50,7 @@ function next() {
 }
 
 /**
- * funcion que muestra la imagen anterior en el slider
+ * función que muestra la imagen anterior en el slider
  */
 function previous() {
     if (contador > 0) {
@@ -77,7 +77,7 @@ function cambiarFoto() {
 }
 
 /**
- * Configuracion de firebase
+ * Configuración de firebase
  */
 var config = {
     apiKey: "AIzaSyDcWt-Z7v5-qQgEMn0ZZKfxOQo_XF2ATO4",
@@ -95,7 +95,7 @@ function iniciarSesion() {
     
     // validaciones
     if (email.length < 4) {
-        alert('Por favor introduzca una dirección de correo eléctronico.');
+        alert('Por favor introduzca una dirección de correo electrónico.');
         return;
     }
     if (password.length < 4) {
@@ -129,7 +129,7 @@ function registarUsuario() {
     
     // Validaciones
     if (email.length < 4) {
-        alert('Por favor introduzca una dirección de correo eléctronico.');
+        alert('Por favor introduzca una dirección de correo electrónico.');
         return;
     }
     if (password.length < 4) {
@@ -154,7 +154,7 @@ function registarUsuario() {
 }
 
 /**
- * funcion para el botón de restrablece contrasena
+ * función para el botón de restablecer contraseña
  */
 function restablecerPassword() {
 	// se usa el email
@@ -197,13 +197,13 @@ function salirLogin() {
 
 
 /**
- * window.onload hace que se ejecute la funcion
+ * window.onload hace que se ejecute la función
  */
 window.onload = function() {
     // al cargar la pagina
 
-    // configuracion slider
-    setInterval("next()", 5000); // ejecucion periodica de la funcion next
+    // configuración slider
+    setInterval("next()", 5000); // ejecución periódica de la función next
     
     // event listener para el slider
     document.formulario.botonA.addEventListener('click', previous);
@@ -216,7 +216,7 @@ window.onload = function() {
     select[3].addEventListener('click', cambiarFoto);
     select[4].addEventListener('click', cambiarFoto);
 
-    // Escuchando los cambios de estado de autenticación para cambiar el aspecto del boton
+    // Escuchando los cambios de estado de autenticación para cambiar el aspecto del botón
     firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById('myBtn').style.color = "white";
         if (user) { // si el usuario esta logeado
@@ -227,7 +227,7 @@ window.onload = function() {
         }
     });
     
-    // evento para el boton de login
+    // evento para el botón de login
     document.getElementById('myBtn').addEventListener('click', mostrarLogin, false);
 
     // eventos de los botones del modal

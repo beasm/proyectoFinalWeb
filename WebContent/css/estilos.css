@@ -51,7 +51,7 @@ header#cabecera {
 }
 
 
-/* aspecto de la navegacion */
+/* aspecto de la navegación */
 nav {
 	position: fixed;
 	z-index: 1;
@@ -88,7 +88,7 @@ nav ul li a:hover {
 }
 
 
-/* aspecto de la secion centrar */
+/* aspecto de la sección centrar */
 section {
 	width: 550px;
 	float: left;
@@ -126,7 +126,7 @@ section footer {
 	left: 0px;
 }
 
-/* aspecto las imagenes del lateral */
+/* aspecto las imágenes del lateral */
 aside {
 	margin-right: 45px;
 	width: 400px;
@@ -142,7 +142,7 @@ aside img {
 }
 
 
-/* aspecto del pie de pagina */
+/* aspecto del pie de página */
 footer {
 	clear: both;
 	left: 5px;
@@ -159,7 +159,7 @@ footer p {
 	padding: 10px;
 }
 
-/* aspecto del formulacion */
+/* aspecto del formulario */
 form {
 	display: grid;
 	background: #f9f9f9;
@@ -206,7 +206,7 @@ iframe {
 	margin-top: 20px;
 }
 
-/* aspecto de la pagina de descargas */
+/* aspecto de la página de descargas */
 .descargas {
 	align-items: center;
 }
