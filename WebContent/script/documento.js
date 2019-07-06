@@ -223,7 +223,6 @@ window.onload = function() {
             document.getElementById('myBtn').textContent = 'Desconectar';
         } else { // si no esta logeado
             document.getElementById('myBtn').textContent = 'Iniciar sesión';
-            mostrarLogin();
         }
     });
     
